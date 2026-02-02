@@ -1,0 +1,2 @@
+class RuneScapeApiException(Exception):
+    pass
