@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import List
+from runescape_api.rs3.exceptions import RunemetricsProfileError
 from runescape_api.rs3.models.runemetrics_activity import RunemetricsActivity
 from runescape_api.rs3.models.runemetrics_skill_value import RunemetricsSkillValue
 
@@ -26,6 +27,9 @@ class RunemetricsProfile:
 
     @classmethod
     def from_response(cls, data: dict) -> "RunemetricsProfile":
+        if "error" in data:
+            raise RunemetricsProfileError(data["error"])
+    
         return cls(
             name=data["name"],
             rank=data["rank"],
