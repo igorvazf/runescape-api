@@ -43,4 +43,4 @@ class Runemetrics:
             path="/runemetrics/quests",
             params={"user": player_name},
         )
-        return [Quest.from_response(r) for r in raw]
+        return [Quest.from_response(r) for r in raw["quests"]]
