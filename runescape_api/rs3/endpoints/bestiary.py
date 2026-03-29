@@ -49,7 +49,11 @@ class Bestiary:
             path="/m=itemdb_rs/bestiary/bestiaryNames.json",
             params={"letter": letter},
         )
-        return [BeastSummary.from_response(r) for r in response]
+        result = []
+        for r in response:
+            result.extend(BeastSummary.from_api_response(r))
+
+        return result
     
     def get_area_names(self) -> List[str]:
         return self.http_adapter.get(

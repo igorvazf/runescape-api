@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, List
 import re
 
 @dataclass
@@ -26,3 +26,10 @@ class BeastSummary:
             name=name,
             combat_level=combat_level,
         )
+
+    @classmethod
+    def from_api_response(cls, data: dict) -> List["BeastSummary"]:
+        if "npcs" in data:
+            return [cls.from_response(npc) for npc in data["npcs"]]
+
+        return [cls.from_response(data)]
