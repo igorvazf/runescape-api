@@ -55,7 +55,7 @@ class GrandExchange:
     
     def get_item_graph(self, item_id: int) -> dict:
         is_positive_int(item_id, "item_id")
-        return self.adapter.get(
+        return self.http_adapter.get(
             base_url=SECURE_RS,
             path=f"/m=itemdb_rs/api/graph/{item_id}.json",
         )
