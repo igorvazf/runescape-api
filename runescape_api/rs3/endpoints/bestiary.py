@@ -101,6 +101,8 @@ class Bestiary:
         return [BeastSummary.from_response(r) for r in response]
     
     def get_beasts_by_level_range(self, lower_threshold: int, upper_threshold: int) -> List[BeastSummary]:
+        is_positive_int(lower_threshold, "lower_threshold")
+        is_positive_int(upper_threshold, "upper_threshold")
         response = self.http_adapter.get(
             base_url=SERVICES_RS,
             path="/m=itemdb_rs/bestiary/levelGroup.json",
