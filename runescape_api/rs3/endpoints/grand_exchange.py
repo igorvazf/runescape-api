@@ -1,5 +1,5 @@
 import json
-from runescape_api.rs3.constants import ITEM_CATEGORIES, SECURE_RS, SERVICES_RS
+from runescape_api.rs3.constants import ITEM_CATEGORIES, SECURE_RS
 from runescape_api.rs3.http.base_http_adapter import BaseHttpAdapter
 from runescape_api.rs3.models.grand_exchange_info import GrandExchangeInfo
 from runescape_api.rs3.models.grand_exchange_item_detail import GrandExchangeItemDetail
