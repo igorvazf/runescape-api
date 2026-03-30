@@ -2,7 +2,7 @@ def is_positive_int(value: int, name: str) -> None:
     if not isinstance(value, int):
         raise TypeError(f"{name} must be an integer")
     
-    if value <= 0:
+    if value < 0:
         raise ValueError(f"{name} must be a positive integer")
 
 def is_non_empty_str(value: str, name: str) -> None:

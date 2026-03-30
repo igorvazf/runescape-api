@@ -16,7 +16,7 @@ class Hiscores:
     def __init__(self, http_adapter: BaseHttpAdapter):
         self.http_adapter = http_adapter
 
-    def get_ranking(self, table: int, category: int, size: int) -> dict:
+    def get_ranking(self, table: int, category: int, size: int) -> list:
         is_positive_int(table, "table")
         is_positive_int(category, "category")
         is_positive_int(size, "size")
